@@ -65,12 +65,26 @@ print(next(result))
 
 #
 
-def normalize_defensive(numbers):
-    if iter(numbers) is iter(numbers):
+def normalize_explicit(population):
+    total = sum(x for _, x in iter(population))
+    for city, count in iter(population):
+        percent = 100 * count / total
+        yield city, percent
+
+data = LoadCities('population.tsv')
+result = normalize_explicit(data)
+print('Explicit')
+print(next(result))
+print(next(result))
+
+#
+
+def normalize_defensive(population):
+    if iter(population) is iter(population):
         raise TypeError('Must be a container')
 
-    total = sum(x for _, x in numbers)
-    for city, count in numbers:
+    total = sum(x for _, x in population)
+    for city, count in population:
         percent = 100 * count / total
         yield city, percent
 
