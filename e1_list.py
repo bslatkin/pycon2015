@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
 
+from pprint import pprint
+
 def load_cities_list(path):
     result = []
     with open(path) as handle:
@@ -12,4 +14,4 @@ def load_cities_list(path):
 
 if __name__ == '__main__':
     result = load_cities_list('population.tsv')
-    print(result)
+    pprint(result)
