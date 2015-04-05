@@ -101,6 +101,23 @@ def log(message, *values, sequence=None):
         values_str = ', '.join(str(x) for x in values)
         print('%s: %s: %s' % (sequence, message, values_str))
 
+
+log('Favorites', 7, 33, sequence=1)
+log('Favorites', 7, 33)
+log('Favorites', 7, 33, 25)
+
+
+def log(message, *values, **kwargs):
+    sequence = kwargs.pop('sequence', datetime.utcnow())
+    if kwargs:
+        raise TypeError('Unexpected: %r' % kwargs)
+    if not values:
+        print('%s: %s' % (sequence, message))
+    else:
+        values_str = ', '.join(str(x) for x in values)
+        print('%s: %s: %s' % (sequence, message, values_str))
+
+
 log('Favorites', 7, 33, sequence=1)
 log('Favorites', 7, 33)
 log('Favorites', 7, 33, 25)

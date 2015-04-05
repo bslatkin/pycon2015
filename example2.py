@@ -46,6 +46,15 @@ flow = flow_rate(
     weight_diff, time_diff,
     period=1, units_per_kg=1)
 
+import logging
+
+try:
+    flow = flow_rate(
+        weight_diff, time_diff)
+    assert False
+except TypeError:
+    logging.exception('Expected')
+
 
 def flow_rate(weight_diff, time_diff, period=1, units_per_kg=1):
     return (

@@ -36,6 +36,7 @@ result = normalize(data)
 
 try:
     print(next(result))
+    assert False
 except StopIteration:
     logging.exception('Expected')
 
@@ -78,6 +79,7 @@ data = load_cities_generator('population.tsv')
 result = normalize_defensive(data)
 try:
     print(next(result))
+    assert False
 except TypeError:
     logging.exception('Expected')
 
