@@ -29,7 +29,7 @@ print('%.3f kg per second' % flow)
 def flow_rate(weight_diff, time_diff, period, units_per_kg):
     return (
         weight_diff
-        / units_per_kg
+        * units_per_kg
         / time_diff
         * period)
 
@@ -59,7 +59,7 @@ except TypeError:
 def flow_rate(weight_diff, time_diff, period=1, units_per_kg=1):
     return (
         weight_diff
-        / units_per_kg
+        * units_per_kg
         / time_diff
         * period)
 

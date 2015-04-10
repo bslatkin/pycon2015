@@ -17,7 +17,7 @@
 def flow_rate(weight_diff, time_diff, period=1, units_per_kg=1):
     return (
         weight_diff
-        / units_per_kg
+        * units_per_kg
         / time_diff
         * period)
 
@@ -35,7 +35,7 @@ oz_per_min = flow_rate(
 def flow_rate(weight_diff, time_diff, *, period=1, units_per_kg=1):
     return (
         weight_diff
-        / units_per_kg
+        * units_per_kg
         / time_diff
         * period)
 
